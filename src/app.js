@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 const publicDirPath = path.join(__dirname, "..", "public");
 // app.com
 // app.com/help
@@ -42,6 +42,7 @@ app.get("/about", (req, res) => {
 app.get("*", (req, res) => {
   res.send("My 404 page, you see");
 });
-app.listen(3000, () => {
-  console.log("Server is up on port 3000");
+
+app.listen(port, () => {
+  console.log("Server is up on port " + port);
 });
